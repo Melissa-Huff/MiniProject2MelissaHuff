@@ -17,3 +17,19 @@ plt.xticks(rotation=0)
 plt.legend(title='Churn', loc='upper right')
 plt.show()
 
+
+gender_churn_counts = churn_analysis[churn_analysis['Churn'] == 'Yes']['gender'].value_counts()
+
+categories = ["Male", "Female"]
+
+values = [gender_churn_counts.get("Male", 0), gender_churn_counts.get("Female", 0)]
+
+plt.figure(figsize=(9, 3))
+
+plt.subplot(131)
+plt.bar(categories, values)
+plt.xlabel('Gender')
+plt.ylabel('Churn Count')
+plt.title('Churn Count by Gender')
+
+plt.show()

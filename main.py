@@ -63,3 +63,14 @@ plt.ylabel('Number of Customers')
 plt.title('Number of Customers by Payment Method')
 plt.xticks(rotation=45, ha='right')
 plt.show()
+
+
+
+billing_counts = churn_analysis.groupby('PaperlessBilling')['customerID'].nunique()
+
+
+plt.figure(figsize=(6, 6))
+plt.pie(billing_counts, labels=billing_counts.index, autopct='%1.1f%%', startangle=90, colors=['skyblue', 'lightgreen'])
+plt.title('CustomerID Distribution by PaperlessBilling')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+plt.show()

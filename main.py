@@ -33,3 +33,14 @@ plt.ylabel('Churn Count')
 plt.title('Churn Count by Gender')
 
 plt.show()
+
+
+
+churned_customers = churn_analysis[churn_analysis['Churn'] == 'Yes']
+
+
+plt.scatter(churned_customers['MonthlyCharges'], churned_customers['TotalCharges'])
+plt.xlabel('Monthly Charges')
+plt.ylabel('Total Charges')
+plt.title('Monthly Charges vs Total Charges of Churned Customers')
+plt.show()

@@ -44,3 +44,22 @@ plt.xlabel('Monthly Charges')
 plt.ylabel('Total Charges')
 plt.title('Monthly Charges vs Total Charges of Churned Customers')
 plt.show()
+
+
+
+
+specified_payment_methods = ['Electronic check', 'Mailed check', 'Bank transfer (automatic)', 'Credit card (automatic)']
+filtered_data = churn_analysis[churn_analysis['PaymentMethod'].isin(specified_payment_methods)]
+
+
+payment_method_counts = filtered_data['PaymentMethod'].value_counts()
+
+colors = ['skyblue', 'orange', 'green', 'red']
+
+
+plt.bar(payment_method_counts.index, payment_method_counts.values, color=colors)
+plt.xlabel('Payment Method')
+plt.ylabel('Number of Customers')
+plt.title('Number of Customers by Payment Method')
+plt.xticks(rotation=45, ha='right')
+plt.show()
